@@ -10,15 +10,15 @@
  */
 public class Calculator2 extends javax.swing.JFrame {
 
-double firstDouble;
-double secondDouble;
-double resultDouble;
+    Double firstDouble = Double.NaN;
+    Double secondDouble = Double.NaN;
+    Double resultDouble = Double.NaN;
 
-int plusClick;
-int minusClick;
-int multiplyClick;
-int divideClick;
-        
+    int plusClick;
+    int minusClick;
+    int multiplyClick;
+    int divideClick;
+
     /**
      * Creates new form Calculator2
      */
@@ -331,19 +331,19 @@ int divideClick;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-  display.setText(display.getText()+jButton6.getText());
+        display.setText(display.getText() + jButton6.getText());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-   display.setText(display.getText()+jButton8.getText());      
+        display.setText(display.getText() + jButton8.getText());
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-   display.setText(display.getText()+jButton9.getText());
+        display.setText(display.getText() + jButton9.getText());
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
-   display.setText(display.getText()+jButton0.getText());
+        display.setText(display.getText() + jButton0.getText());
     }//GEN-LAST:event_jButton0ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -351,91 +351,95 @@ int divideClick;
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButtonequalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonequalActionPerformed
-secondDouble=(Double.parseDouble(String.valueOf(display.getText())));  
-if (plusClick>0){
-    resultDouble=firstDouble+secondDouble;
-    display.setText((String.valueOf(resultDouble)));
-    firstDouble=0;
-    secondDouble=0;
-    plusClick=0;
-}
-if (minusClick>0){
-    resultDouble=firstDouble-secondDouble;
-    display.setText((String.valueOf(resultDouble)));
-    firstDouble=0;
-    secondDouble=0;
-    minusClick=0;
+        calculate();
+        firstDouble = Double.NaN;
     }//GEN-LAST:event_jButtonequalActionPerformed
-    if (multiplyClick>0){
-    resultDouble=firstDouble*secondDouble;
-    display.setText((String.valueOf(resultDouble)));
-    firstDouble=0;
-    secondDouble=0;
-    multiplyClick=0;
-    }
-    if (divideClick>0){
-    resultDouble=firstDouble/secondDouble;
-    display.setText((String.valueOf(resultDouble)));
-    firstDouble=0;
-    secondDouble=0;
-    divideClick=0;
-    }}
+    
     private void jButtondotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtondotActionPerformed
-  display.setText(display.getText()+jButtondot.getText());      
+        display.setText(display.getText() + jButtondot.getText());
     }//GEN-LAST:event_jButtondotActionPerformed
 
     private void jButtonclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonclearActionPerformed
-  display.setText("");
+        display.setText("");
     }//GEN-LAST:event_jButtonclearActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- display.setText(display.getText()+jButton1.getText());
+        display.setText(display.getText() + jButton1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- display.setText(display.getText()+jButton2.getText());        
+        display.setText(display.getText() + jButton2.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
- display.setText(display.getText()+jButton3.getText());      
+        display.setText(display.getText() + jButton3.getText());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
- display.setText(display.getText()+jButton4.getText());      
+        display.setText(display.getText() + jButton4.getText());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
- display.setText(display.getText()+jButton5.getText());   
+        display.setText(display.getText() + jButton5.getText());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-  display.setText(display.getText()+jButton7.getText());
+        display.setText(display.getText() + jButton7.getText());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButtonplusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonplusActionPerformed
-firstDouble=(Double.parseDouble(String.valueOf(display.getText())));
-display.setText("");
-plusClick=1;
+        if(firstDouble.isNaN()) {
+            firstDouble = (Double.parseDouble(String.valueOf(display.getText())));
+            display.setText("");
+        } else {
+            calculate();
+        }
+        plusClick = 1;
     }//GEN-LAST:event_jButtonplusActionPerformed
 
     private void jButtonminusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonminusActionPerformed
-firstDouble=(Double.parseDouble(String.valueOf(display.getText())));
-display.setText("");
-minusClick=1;        
+        firstDouble = (Double.parseDouble(String.valueOf(display.getText())));
+        display.setText("");
+        minusClick = 1;
     }//GEN-LAST:event_jButtonminusActionPerformed
 
     private void jButtonmultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonmultiplyActionPerformed
-firstDouble=(Double.parseDouble(String.valueOf(display.getText())));
-display.setText("");
-multiplyClick=1;     
+        firstDouble = (Double.parseDouble(String.valueOf(display.getText())));
+        display.setText("");
+        multiplyClick = 1;
     }//GEN-LAST:event_jButtonmultiplyActionPerformed
 
     private void jButtondivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtondivideActionPerformed
-firstDouble=(Double.parseDouble(String.valueOf(display.getText())));
-display.setText("");
-divideClick=1;     
+        firstDouble = (Double.parseDouble(String.valueOf(display.getText())));
+        display.setText("");
+        divideClick = 1;
     }//GEN-LAST:event_jButtondivideActionPerformed
 
+    
+    private void calculate() {
+        secondDouble = (Double.parseDouble(String.valueOf(display.getText())));
+        if (plusClick > 0) {
+            firstDouble = firstDouble + secondDouble;
+            display.setText((String.valueOf(firstDouble)));
+            plusClick = 0;
+        }
+        if (minusClick > 0) {
+            firstDouble = firstDouble - secondDouble;
+            display.setText((String.valueOf(firstDouble)));
+            minusClick = 0;
+        }
+        if (multiplyClick > 0) {
+            firstDouble = firstDouble * secondDouble;
+            display.setText((String.valueOf(firstDouble)));
+            multiplyClick = 0;
+        }
+        if (divideClick > 0) {
+            firstDouble = firstDouble / secondDouble;
+            display.setText((String.valueOf(firstDouble)));
+            divideClick = 0;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
